@@ -5,6 +5,7 @@ on:
     branches:
       - master
   pull_request:
+  workflow_dispatch:
 
 env:
   HUSKY: '0'
@@ -27,4 +28,6 @@ jobs:
         run: sed -i 's/\x0D$//' ./dist/index.js
       - name: check for unstaged files
         if: ${{ github.actor != 'dependabot[bot]' }}
-        run: .github/no-unstaged-files.sh
+        run: |
+          echo "💾 checking for unstaged files from: {{ github.actor }}"
+          .github/no-unstaged-files.sh
