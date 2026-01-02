@@ -27,3 +27,4 @@ dist/views/
 *.launch
 .settings/
 *.sublime-workspace
+.devbox
